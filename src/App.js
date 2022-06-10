@@ -1,10 +1,15 @@
 
 import './App.css';
+import CategoryList from './components/Category-list/Category-list.component';
+function App() 
+{
+ 
+  
 
-function App() {
+
   return (
-    <div className="App">
-      <p>Hellow</p>
+    <div className="Categories">
+      <CategoryList />
     </div>
   );
 }
