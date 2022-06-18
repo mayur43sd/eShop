@@ -1,0 +1,22 @@
+.sign-in-container{
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+  
+    h2{
+      margin: 10px 0;
+  }
+  .buttons-container{
+      display: flex;
+      justify-content: space-between;
+  }
+  p{
+      background-color: rgb(235, 83, 83);
+      border: 5px;
+      border-radius: 5px;
+      padding-left: 10px;
+      visibility: hidden;
+  }
+  }
+  
+  

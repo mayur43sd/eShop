@@ -1,7 +1,7 @@
 
 import './category.scss'
 
-const Category = ({category}) => {
+const Category = ({ category}) => {
     const {id , title , imageUrl} = category;
 
     return(

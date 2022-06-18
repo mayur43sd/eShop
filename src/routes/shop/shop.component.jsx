@@ -1,4 +1,4 @@
-
+import CategoryList from "../../components/Category-list/Category-list.component";
 
 const Shop = () => {
 
