@@ -42,7 +42,7 @@ const SignInForm = () => {
         }catch(error)
         {
             if(error.code==='auth/wrong-password')
-            console.log("incorrect password")
+            alert("incorrect password")
            
            setFormFields({...formFields , isPasswordCorrect:false});
           
