@@ -1,16 +1,18 @@
-import { Fragment , useContext } from "react";
+import { Fragment } from "react";
 import { Link , Outlet} from "react-router-dom";
 import { ReactComponent as Crwnlogo } from '../../assets/crown.svg';
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import './navigation.styles.scss'
-import { UserContext } from "../../contexts/userContext/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
-import { CartContext } from "../../contexts/cart.context";
+import { selectIsCartOpen } from "../../store/cart/cart.selector";
+import { useSelector} from 'react-redux';
+import { getCurrentUser } from "../../store/user/user.selector";
+
 const Navigation = () => {
 
-const { currentUser } = useContext(UserContext);
-const {isCartOpen} = useContext(CartContext);
+  const currentUser = useSelector(getCurrentUser);
+  const iscartOpen = useSelector(selectIsCartOpen);
 
 const handleClick = async() => {
   await signOutUser();
@@ -31,14 +33,14 @@ const handleClick = async() => {
           <Link className="nav-link" to={"/checkout"}>
             Checkout
           </Link>
-          {!currentUser ?<Link className="nav-link" to={"/auth"}>
+          {!currentUser ?<Link className="nav-link" to={"/auth"} >
             SIGN IN
           </Link> : <Link className="nav-link" to={"/auth"} onClick={handleClick}>
           SIGN OUT
         </Link> }
         <CartIcon />
         </div>
-        {isCartOpen && <CartDropdown />}
+        {iscartOpen && <CartDropdown />}
       </div>
       <Outlet />
     </Fragment>
