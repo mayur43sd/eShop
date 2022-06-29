@@ -1,5 +1,5 @@
 import { createAction } from "../../utils/reducer/reducer.utils";
-import { USER_ACTION_TYPES } from "./cart.types";
+import { CART_ACTION_TYPES } from "./cart.types";
 
 //const cartItems = store.getState().cart.cartItems;
 
@@ -42,23 +42,23 @@ const addItem = (cartItems, productToAdd) => {
   }
 
 
-  export const setIsCartOpen = (payload) => createAction(USER_ACTION_TYPES.TOGGLE_IS_CART_OPEN , payload)
+  export const setIsCartOpen = (payload) => createAction(CART_ACTION_TYPES.TOGGLE_IS_CART_OPEN , payload)
  
 
   export const addItemToCart = (cartItems , product) => {
     const newCartItems = addItem(cartItems, product);
-    return createAction(USER_ACTION_TYPES.SET_CART_ITEM , newCartItems)
+    return createAction(CART_ACTION_TYPES.SET_CART_ITEM , newCartItems)
  
    };
  
    export const removeItemFromCart = (cartItems ,item) => {
      const newCartItems = removeItem(cartItems,item)
-     return createAction(USER_ACTION_TYPES.SET_CART_ITEM , newCartItems)
+     return createAction(CART_ACTION_TYPES.SET_CART_ITEM , newCartItems)
    }
  
    export const deleteItemFromCart = (cartItems ,item) => {
      const newCartItems =deleteItem(cartItems,item)
-     return createAction(USER_ACTION_TYPES.SET_CART_ITEM , newCartItems)
+     return createAction(CART_ACTION_TYPES.SET_CART_ITEM , newCartItems)
    }
 
  

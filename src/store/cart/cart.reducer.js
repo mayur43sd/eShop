@@ -1,4 +1,4 @@
-import { USER_ACTION_TYPES } from "./cart.types";
+import { CART_ACTION_TYPES } from "./cart.types";
 
 const CART_INITIAL_STATE = {
     isCartOpen: false,
@@ -10,12 +10,12 @@ const CART_INITIAL_STATE = {
   
     switch(type)
     {
-        case USER_ACTION_TYPES.SET_CART_ITEM:
+        case CART_ACTION_TYPES.SET_CART_ITEM:
             return({
                 ...state,
                 cartItems:payload
             })
-        case USER_ACTION_TYPES.TOGGLE_IS_CART_OPEN:
+        case CART_ACTION_TYPES.TOGGLE_IS_CART_OPEN:
              return({
                  ...state,
                  isCartOpen:payload

@@ -6,9 +6,9 @@ import Navigation from './routes/navigation/navigation.component';
 import Authentication from './routes/authentication/authentication.component';
 import{Routes ,Route} from 'react-router-dom';
 import Checkout from './routes/checkout/checkout.component';
-import { setCurrentUser } from './store/user/user.actions';
+import { checkUserSession, setCurrentUser } from './store/user/user.actions';
 import {useEffect} from 'react';
-import { onAuthChangedListner ,createUserDocumentFromAuth } from "./utils/firebase/firebase.utils";
+import { onAuthChangedListner ,createUserDocumentFromAuth, getCurrentUser } from "./utils/firebase/firebase.utils";
 import {useDispatch} from 'react-redux'
 
 
@@ -17,15 +17,7 @@ function App()
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = onAuthChangedListner((user)=> {
-        
-    if(user)
-    {
-        createUserDocumentFromAuth(user);
-    }
-        dispatch(setCurrentUser(user));
-    });
-        return unsubscribe
+    dispatch(checkUserSession())
        } , [])
 
   
